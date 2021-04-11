@@ -1,0 +1,14 @@
+Corona:
+    headache:yes
+    back_pain:no
+    chest_pain:yes
+    cough:yes
+    fainting:no
+    sore_throat:yes
+    fatigue:yes
+    restlessness:no
+    low_body_temp:no
+    fever:yes
+    sunken_eyes:no
+    nausea:no
+    blurred_vision:no

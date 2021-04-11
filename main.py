@@ -123,7 +123,7 @@ class Greetings(KnowledgeEngine):
 
     @Rule(Fact(action="find_disease"), NOT(Fact(nausea=W())), salience=1)
     def symptom_11(self):
-        self.declare(Fact(nausea=input("Nausea: ")))
+        self.declare(Fact(nausea=input("nausea: ")))
 
     @Rule(Fact(action="find_disease"), NOT(Fact(blurred_vision=W())), salience=1)
     def symptom_12(self):
@@ -376,6 +376,25 @@ class Greetings(KnowledgeEngine):
     )
     def disease_12(self):
         self.declare(Fact(disease="Hypothermia"))
+    
+    @Rule(
+        Fact(action="find_disease"),
+        Fact(headache="yes"),
+        Fact(back_pain="no"),
+        Fact(chest_pain="yes"),
+        Fact(cough="yes"),
+        Fact(fainting="no"),
+        Fact(sore_throat="yes"),
+        Fact(fatigue="yes"),
+        Fact(restlessness="no"),
+        Fact(low_body_temp="no"),
+        Fact(fever="yes"),
+        Fact(sunken_eyes="no"),
+        Fact(nausea="no"),
+        Fact(blurred_vision="no"),
+    )
+    def disease_13(self):
+        self.declare(Fact(disease="Coronavirus"))
 
     #when the user's input doesn't match any disease in the knowledge base
     @Rule(Fact(action="find_disease"), Fact(disease=MATCH.disease), salience=-998)
@@ -465,6 +484,6 @@ if __name__ == "__main__":
     while 1:
         engine.reset()
         engine.run()
-        print("Would you like to diagnose some other symptoms?")
+        print("Would you like to diagnose some other symptoms?\n Reply yes or no")
         if input() == "no":
             exit()

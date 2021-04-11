@@ -11,3 +11,4 @@ Glaucoma
 Hyperthyroidism
 Heat Stroke
 Hypothermia
+Coronavirus
