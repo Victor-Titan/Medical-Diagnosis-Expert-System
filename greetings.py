@@ -4,7 +4,7 @@ class Greetings(KnowledgeEngine):
     @DefFacts()
     def _initial_action(self):
         print("")
-        print("This is an expert-system based bot to diagnose diseases")
+        print("This is a knowledge based bot to diagnose diseases")
         print("")
         print("Do you feel any of the following symptoms?")
         print("Reply hi or lo or no")
@@ -381,7 +381,7 @@ class Greetings(KnowledgeEngine):
         nausea,
         blurred_vision,
     ):
-        print("\nDid not find any disease that matches your exact symptoms")
+        print("\nThe bot did not find any diseases that match your exact symptoms.")
         lis = [
             headache,
             back_pain,
