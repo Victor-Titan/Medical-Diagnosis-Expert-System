@@ -72,7 +72,7 @@ class Greetings(KnowledgeEngine):
         print("This is an expert-system based bot to diagnose diseases")
         print("")
         print("Do you feel any of the following symptoms?")
-        print("Reply yes or no")
+        print("Reply hi or lo or no")
         print("")
         yield Fact(action="find_disease")
 
@@ -379,16 +379,16 @@ class Greetings(KnowledgeEngine):
     
     @Rule(
         Fact(action="find_disease"),
-        Fact(headache="yes"),
+        Fact(headache="hi"),
         Fact(back_pain="no"),
-        Fact(chest_pain="yes"),
-        Fact(cough="yes"),
+        Fact(chest_pain="hi"),
+        Fact(cough="hi"),
         Fact(fainting="no"),
-        Fact(sore_throat="yes"),
-        Fact(fatigue="yes"),
+        Fact(sore_throat="hi"),
+        Fact(fatigue="hi"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
-        Fact(fever="yes"),
+        Fact(fever="hi"),
         Fact(sunken_eyes="no"),
         Fact(nausea="no"),
         Fact(blurred_vision="no"),
@@ -428,7 +428,7 @@ class Greetings(KnowledgeEngine):
         Fact(nausea=MATCH.nausea),
         Fact(blurred_vision=MATCH.blurred_vision),
         NOT(Fact(disease=MATCH.disease)),
-        salience=-999,
+        salience=-999
     )
     def not_matched(
         self,
@@ -468,7 +468,7 @@ class Greetings(KnowledgeEngine):
             count = 0
             temp_list = eval(key)
             for j in range(0, len(lis)):
-                if temp_list[j] == lis[j] and lis[j] == "yes":
+                if temp_list[j] == lis[j] and (lis[j] == "hi" or lis[j] == "lo"):
                     count = count + 1
             if count > max_count:
                 max_count = count
