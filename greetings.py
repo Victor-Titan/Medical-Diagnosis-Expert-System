@@ -1,6 +1,10 @@
 from experta import *
 
 class Greetings(KnowledgeEngine):
+
+    def __init__(self, symptom_map):
+        self.symptom_map = symptom_map
+
     #code giving instructions on how to use the Expert System
     @DefFacts()
     def _initial_action(self):
@@ -400,7 +404,7 @@ class Greetings(KnowledgeEngine):
         ]
         max_count = 0
         max_disease = ""
-        for key, val in symptom_map.items():
+        for key, val in self.symptom_map.items():
             count = 0
             temp_list = eval(key)
             for j in range(0, len(lis)):
