@@ -1,4 +1,3 @@
-from experta import *
 from greetings import Greetings
 diseases_list = []
 diseases_symptoms = []

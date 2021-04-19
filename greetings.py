@@ -1,4 +1,5 @@
-#class that contains the code used to run the program
+from experta import *
+
 class Greetings(KnowledgeEngine):
     #code giving instructions on how to use the Expert System
     @DefFacts()
