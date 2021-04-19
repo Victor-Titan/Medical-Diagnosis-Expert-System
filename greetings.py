@@ -2,8 +2,10 @@ from experta import *
 
 class Greetings(KnowledgeEngine):
 
-    def __init__(self, symptom_map):
+    def __init__(self, symptom_map, if_not_matched):
         self.symptom_map = symptom_map
+        self.if_not_matched = if_not_matched
+        KnowledgeEngine.__init__(self)
 
     #code giving instructions on how to use the Expert System
     @DefFacts()
@@ -413,4 +415,5 @@ class Greetings(KnowledgeEngine):
             if count > max_count:
                 max_count = count
                 max_disease = val
-        if_not_matched(max_disease)
+        if max_disease != "":
+            self.if_not_matched(max_disease)

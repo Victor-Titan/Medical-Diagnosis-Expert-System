@@ -66,7 +66,7 @@ def if_not_matched(disease):
 if __name__ == "__main__":
     preprocess()
     #creating class object
-    engine = Greetings(symptom_map)
+    engine = Greetings(symptom_map, if_not_matched)
     #loop to keep running the code until user says no when asked for another diagnosis
     while 1:
         engine.reset()
