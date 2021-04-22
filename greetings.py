@@ -2,9 +2,11 @@ from experta import *
 
 class Greetings(KnowledgeEngine):
 
-    def __init__(self, symptom_map, if_not_matched):
+    def __init__(self, symptom_map, if_not_matched, get_treatments, get_details):
         self.symptom_map = symptom_map
         self.if_not_matched = if_not_matched
+        self.get_details = get_details
+        self.get_treatments = get_treatments
         KnowledgeEngine.__init__(self)
 
     #code giving instructions on how to use the Expert System
@@ -14,7 +16,7 @@ class Greetings(KnowledgeEngine):
         print("This is a knowledge based bot to diagnose diseases")
         print("")
         print("Do you feel any of the following symptoms?")
-        print("Reply hi or lo or no")
+        print("Reply high or low or no")
         print("")
         yield Fact(action="find_disease")
 
@@ -80,12 +82,12 @@ class Greetings(KnowledgeEngine):
         Fact(cough="no"),
         Fact(fainting="no"),
         Fact(sore_throat="no"),
-        Fact(fatigue="yes"),
+        Fact(fatigue="high"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
-        Fact(fever="yes"),
+        Fact(fever="low"),
         Fact(sunken_eyes="no"),
-        Fact(nausea="yes"),
+        Fact(nausea="high"),
         Fact(blurred_vision="no"),
     )
     def disease_0(self):
@@ -100,7 +102,7 @@ class Greetings(KnowledgeEngine):
         Fact(fainting="no"),
         Fact(sore_throat="no"),
         Fact(fatigue="no"),
-        Fact(restlessness="yes"),
+        Fact(restlessness="high"),
         Fact(low_body_temp="no"),
         Fact(fever="no"),
         Fact(sunken_eyes="no"),
@@ -113,12 +115,12 @@ class Greetings(KnowledgeEngine):
     @Rule(
         Fact(action="find_disease"),
         Fact(headache="no"),
-        Fact(back_pain="yes"),
+        Fact(back_pain="high"),
         Fact(chest_pain="no"),
         Fact(cough="no"),
         Fact(fainting="no"),
         Fact(sore_throat="no"),
-        Fact(fatigue="yes"),
+        Fact(fatigue="low"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
         Fact(fever="no"),
@@ -133,14 +135,14 @@ class Greetings(KnowledgeEngine):
         Fact(action="find_disease"),
         Fact(headache="no"),
         Fact(back_pain="no"),
-        Fact(chest_pain="yes"),
-        Fact(cough="yes"),
+        Fact(chest_pain="high"),
+        Fact(cough="low"),
         Fact(fainting="no"),
         Fact(sore_throat="no"),
         Fact(fatigue="no"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
-        Fact(fever="yes"),
+        Fact(fever="high"),
         Fact(sunken_eyes="no"),
         Fact(nausea="no"),
         Fact(blurred_vision="no"),
@@ -152,12 +154,12 @@ class Greetings(KnowledgeEngine):
         Fact(action="find_disease"),
         Fact(headache="no"),
         Fact(back_pain="no"),
-        Fact(chest_pain="yes"),
-        Fact(cough="yes"),
+        Fact(chest_pain="high"),
+        Fact(cough="high"),
         Fact(fainting="no"),
         Fact(sore_throat="no"),
         Fact(fatigue="no"),
-        Fact(restlessness="yes"),
+        Fact(restlessness="low"),
         Fact(low_body_temp="no"),
         Fact(fever="no"),
         Fact(sunken_eyes="no"),
@@ -169,16 +171,16 @@ class Greetings(KnowledgeEngine):
 
     @Rule(
         Fact(action="find_disease"),
-        Fact(headache="yes"),
+        Fact(headache="low"),
         Fact(back_pain="no"),
         Fact(chest_pain="no"),
-        Fact(cough="yes"),
+        Fact(cough="high"),
         Fact(fainting="no"),
-        Fact(sore_throat="yes"),
+        Fact(sore_throat="high"),
         Fact(fatigue="no"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
-        Fact(fever="yes"),
+        Fact(fever="low"),
         Fact(sunken_eyes="no"),
         Fact(nausea="no"),
         Fact(blurred_vision="no"),
@@ -194,7 +196,7 @@ class Greetings(KnowledgeEngine):
         Fact(cough="no"),
         Fact(fainting="no"),
         Fact(sore_throat="no"),
-        Fact(fatigue="yes"),
+        Fact(fatigue="low"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
         Fact(fever="no"),
@@ -209,7 +211,7 @@ class Greetings(KnowledgeEngine):
         Fact(action="find_disease"),
         Fact(headache="no"),
         Fact(back_pain="no"),
-        Fact(chest_pain="yes"),
+        Fact(chest_pain="high"),
         Fact(cough="no"),
         Fact(fainting="no"),
         Fact(sore_throat="no"),
@@ -218,7 +220,7 @@ class Greetings(KnowledgeEngine):
         Fact(low_body_temp="no"),
         Fact(fever="no"),
         Fact(sunken_eyes="no"),
-        Fact(nausea="yes"),
+        Fact(nausea="high"),
         Fact(blurred_vision="no"),
     )
     def disease_7(self):
@@ -232,20 +234,20 @@ class Greetings(KnowledgeEngine):
         Fact(cough="no"),
         Fact(fainting="no"),
         Fact(sore_throat="no"),
-        Fact(fatigue="yes"),
+        Fact(fatigue="high"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
         Fact(fever="no"),
         Fact(sunken_eyes="no"),
-        Fact(nausea="yes"),
-        Fact(blurred_vision="yes"),
+        Fact(nausea="low"),
+        Fact(blurred_vision="low"),
     )
     def disease_8(self):
         self.declare(Fact(disease="Diabetes"))
 
     @Rule(
         Fact(action="find_disease"),
-        Fact(headache="yes"),
+        Fact(headache="low"),
         Fact(back_pain="no"),
         Fact(chest_pain="no"),
         Fact(cough="no"),
@@ -256,8 +258,8 @@ class Greetings(KnowledgeEngine):
         Fact(low_body_temp="no"),
         Fact(fever="no"),
         Fact(sunken_eyes="no"),
-        Fact(nausea="yes"),
-        Fact(blurred_vision="yes"),
+        Fact(nausea="high"),
+        Fact(blurred_vision="low"),
     )
     def disease_9(self):
         self.declare(Fact(disease="Glaucoma"))
@@ -270,12 +272,12 @@ class Greetings(KnowledgeEngine):
         Fact(cough="no"),
         Fact(fainting="no"),
         Fact(sore_throat="no"),
-        Fact(fatigue="yes"),
+        Fact(fatigue="high"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
         Fact(fever="no"),
         Fact(sunken_eyes="no"),
-        Fact(nausea="yes"),
+        Fact(nausea="low"),
         Fact(blurred_vision="no"),
     )
     def disease_10(self):
@@ -283,7 +285,7 @@ class Greetings(KnowledgeEngine):
 
     @Rule(
         Fact(action="find_disease"),
-        Fact(headache="yes"),
+        Fact(headache="high"),
         Fact(back_pain="no"),
         Fact(chest_pain="no"),
         Fact(cough="no"),
@@ -292,9 +294,9 @@ class Greetings(KnowledgeEngine):
         Fact(fatigue="no"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
-        Fact(fever="yes"),
+        Fact(fever="high"),
         Fact(sunken_eyes="no"),
-        Fact(nausea="yes"),
+        Fact(nausea="high"),
         Fact(blurred_vision="no"),
     )
     def disease_11(self):
@@ -310,7 +312,7 @@ class Greetings(KnowledgeEngine):
         Fact(sore_throat="no"),
         Fact(fatigue="no"),
         Fact(restlessness="no"),
-        Fact(low_body_temp="yes"),
+        Fact(low_body_temp="high"),
         Fact(fever="no"),
         Fact(sunken_eyes="no"),
         Fact(nausea="no"),
@@ -321,16 +323,16 @@ class Greetings(KnowledgeEngine):
     
     @Rule(
         Fact(action="find_disease"),
-        Fact(headache="hi"),
+        Fact(headache="high"),
         Fact(back_pain="no"),
-        Fact(chest_pain="hi"),
-        Fact(cough="hi"),
+        Fact(chest_pain="high"),
+        Fact(cough="high"),
         Fact(fainting="no"),
-        Fact(sore_throat="hi"),
-        Fact(fatigue="hi"),
+        Fact(sore_throat="high"),
+        Fact(fatigue="high"),
         Fact(restlessness="no"),
         Fact(low_body_temp="no"),
-        Fact(fever="hi"),
+        Fact(fever="high"),
         Fact(sunken_eyes="no"),
         Fact(nausea="no"),
         Fact(blurred_vision="no"),
@@ -343,8 +345,8 @@ class Greetings(KnowledgeEngine):
     def disease(self, disease):
         print("")
         id_disease = disease
-        disease_details = get_details(id_disease)
-        treatments = get_treatments(id_disease)
+        disease_details = self.get_details(id_disease)
+        treatments = self.get_treatments(id_disease)
         print("")
         print("The most probable disease that you have is %s\n" % (id_disease))
         print("A short description of the disease is given below :\n")
@@ -410,7 +412,7 @@ class Greetings(KnowledgeEngine):
             count = 0
             temp_list = eval(key)
             for j in range(0, len(lis)):
-                if temp_list[j] == lis[j] and (lis[j] == "hi" or lis[j] == "lo"):
+                if temp_list[j] == lis[j] and (lis[j] == "high" or lis[j] == "low"):
                     count = count + 1
             if count > max_count:
                 max_count = count
