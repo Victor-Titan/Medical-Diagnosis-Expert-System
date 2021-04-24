@@ -21,7 +21,7 @@ class Greetings(KnowledgeEngine):
         yield Fact(action="find_disease")
 
     #taking various input from user
-    @Rule(Fact(action="find_disease"), NOT(Fact(headache=W())), salience=1)
+    @Rule(Fact(action="find_disease"), NOT(Fact(headache=W())), salience=4)
     def symptom_0(self):
         self.declare(Fact(headache=input("headache: ")))
 
@@ -33,7 +33,7 @@ class Greetings(KnowledgeEngine):
     def symptom_2(self):
         self.declare(Fact(chest_pain=input("chest pain: ")))
 
-    @Rule(Fact(action="find_disease"), NOT(Fact(cough=W())), salience=1)
+    @Rule(Fact(action="find_disease"), NOT(Fact(cough=W())), salience=3)
     def symptom_3(self):
         self.declare(Fact(cough=input("cough: ")))
 
@@ -348,7 +348,7 @@ class Greetings(KnowledgeEngine):
         disease_details = self.get_details(id_disease)
         treatments = self.get_treatments(id_disease)
         print("")
-        print("The most probable disease that you have is %s\n" % (id_disease))
+        print("Your symptoms match %s\n" % (id_disease))
         print("A short description of the disease is given below :\n")
         print(disease_details + "\n")
         print(
@@ -412,7 +412,7 @@ class Greetings(KnowledgeEngine):
             count = 0
             temp_list = eval(key)
             for j in range(0, len(lis)):
-                if temp_list[j] == lis[j] and (lis[j] == "high" or lis[j] == "low"):
+                if temp_list[j] == lis[j] and (lis[j] == "high" or lis[j] == "low" or lis[j] == "yes"):
                     count = count + 1
             if count > max_count:
                 max_count = count
