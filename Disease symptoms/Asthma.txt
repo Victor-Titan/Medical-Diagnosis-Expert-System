@@ -1,11 +1,11 @@
 no
 no
-yes
-yes
+high
+high
 no
 no
 no
-yes
+low
 no
 no
 no

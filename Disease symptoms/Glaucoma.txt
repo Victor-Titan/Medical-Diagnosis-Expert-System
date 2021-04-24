@@ -1,4 +1,4 @@
-yes
+low
 no
 no
 no
@@ -9,5 +9,5 @@ no
 no
 no
 no
-yes
-yes
+high
+low

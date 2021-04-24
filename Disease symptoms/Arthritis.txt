@@ -1,10 +1,10 @@
 no
-yes
+high
 no
 no
 no
 no
-yes
+low
 no
 no
 no
