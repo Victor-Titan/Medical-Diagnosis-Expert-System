@@ -4,10 +4,10 @@ This is an Expert System Shell written in Python using [experta](https://pypi.or
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install experta.
+Use the below command to install all requirements of the project and then run ```main.py```.
 
 ```bash
-pip install experta
+pip freeze > requirements.txt
 ```
 
 ## Usage
