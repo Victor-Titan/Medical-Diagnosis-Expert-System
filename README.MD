@@ -13,3 +13,6 @@ pip freeze > requirements.txt
 ## Usage
 
 Type ```python main.py``` in the command line to run the program and enter yes/no/high/low according to whatever symptom you have.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
