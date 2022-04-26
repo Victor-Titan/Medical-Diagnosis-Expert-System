@@ -7,7 +7,7 @@ This is an Expert System Shell written in Python using [experta](https://pypi.or
 Use the below command to install all requirements of the project and then run ```main.py```.
 
 ```bash
-pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
